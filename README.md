@@ -25,7 +25,7 @@ This coding assignment is more like a puzzle than a project. Approach it the wro
 
 While working on your tasks, please commit and push your code, including WIPs. We want to see your rich interior coding-life, not just one hairball at the end. 
 
-Each task is just a prompt, at the end of the project, as long as you meet the exit critera, what order you approach the project is up to you.
+Each task is just a prompt, at the end of the project, as long as you meet the acceptance critera, what order you approach the project is up to you.
 
 ## P-Zeros
 
@@ -38,8 +38,22 @@ Each task is just a prompt, at the end of the project, as long as you meet the e
 7. PUT: An existing song can be updated in the database via the API using a form rendered by the front end app
 8. DELETE: An existing song can be removed from the database via the API using a form rendered by the front end app
 
-**Exit Criteria**: We can clone your repo, run your project, and all sub-systems start without erroring, the front end is loadable via a browser. We are able to list, add, edit and remove songs from the database.
+## Acceptance Criteria
 
-## P-Ones
+1. Clone your repo
+2. Run your project
+3. All sub-systems start without erroring
+4. Front end is loadable via a browser
+5. We are able to list, add, edit and remove songs from the database
 
-1. 
+# Getting Started
+
+Just clone this repo into your own workspace. When you're ready to submit, just send us a PR
+
+# FAQ
+
+1. **Is there a time limit?** No, there isn't, but this should be able to be completed in around 8 dev hours
+2. **Can I use other technologies if I don't like MongoDB, Express or Angular?** No
+3. **Do I have to deploy this to the cloud?** No, but if you do, you'll definitely get extra credit
+4. **What async approach should I take?** We'll leave that up to you, but we are looking for contemporary skills, so if you use callbacks, we're going to have to report you
+5. **What happens if I have a problem or find a bug in the instructions?** Please cut an issue against this repo, we're monitoring the issue log and will answer it asap
