@@ -23,4 +23,15 @@ This coding assignment is more like a puzzle than a project. Approach it the wro
 
 # Tasks
 
-1. 
+While working on your tasks, please commit and push your code, including WIPs. We want to see your rich interior coding-life, not just one hairball at the end. 
+
+Each task is just a prompt, at the end of the project, as long as you meet the exit critera, what order you approach the project is up to you.
+
+## P-Zeros
+
+1. New Project: A VSCode project, laid out as a monolithic microservice repo
+2. Backend: A MongoDB database
+3. API: An Express.js based API
+4. Front end: An Angular based SPA
+
+## P-Ones
