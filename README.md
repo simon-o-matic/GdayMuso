@@ -33,5 +33,13 @@ Each task is just a prompt, at the end of the project, as long as you meet the e
 2. Backend: A MongoDB database
 3. API: An Express.js based API
 4. Front end: An Angular based SPA
+5. GET: A list of songs are read from the database via the API and rendered by the front end app
+6. POST: A new song can be created in the database via the API using a form rendered by the front end app
+7. PUT: An existing song can be updated in the database via the API using a form rendered by the front end app
+8. DELETE: An existing song can be removed from the database via the API using a form rendered by the front end app
+
+**Exit Criteria**: We can clone your repo, run your project, and all sub-systems start without erroring, the front end is loadable via a browser. We are able to list, add, edit and remove songs from the database.
 
 ## P-Ones
+
+1. 
