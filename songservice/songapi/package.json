@@ -1,0 +1,13 @@
+{
+    "name": "SongAPI",
+    "version": "0.0.1",
+    "description": "The Song API in node/express. Uses a private Song Database in Mongo.",
+    "author": "shimmie",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "express": "^4.16.1"
+    }
+  }
