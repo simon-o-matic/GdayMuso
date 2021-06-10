@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SongService} from '../song.service'
-import {Song } from '../song'
+import { Song } from '../song'
 
 @Component({
   selector: 'app-songs',
@@ -15,6 +15,10 @@ export class SongsComponent implements OnInit {
 
   getSongs(): void { 
     this.songService.getSongs().subscribe(songs => this.songs = songs);
+  }
+
+  deleteSong(id: string): void {
+    this.songService.deleteSong(id).subscribe(() => this.getSongs());
   }
 
   ngOnInit(): void {

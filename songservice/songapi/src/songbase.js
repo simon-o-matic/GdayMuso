@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb'
+import { MongoClient, ObjectId } from 'mongodb'
 
 const DB_URL = 'mongodb://songdatabase'
 const SONG_COLLECTION = 'songcollection'
@@ -10,6 +10,11 @@ export default function (dbName) {
     const addSong = async (song) => {
         song.created = new Date().getTime()
         return songCollection.insertOne(song)
+    }
+
+    const deleteSong = async (id) => {
+        if (!id) return // better error handling here please!
+        return songCollection.deleteOne({ _id: ObjectId(id) })
     }
 
     const getAllSongs = async () => {
@@ -49,5 +54,5 @@ export default function (dbName) {
         }
     }
 
-    return { connect, clear, addSong, getAllSongs, close }
+    return { connect, clear, addSong, getAllSongs, close, deleteSong }
 }

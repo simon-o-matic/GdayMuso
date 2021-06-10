@@ -10,13 +10,18 @@ import { Song } from './song'
   providedIn: 'root'
 })
 export class SongService {
-  private songUrl = 'http://localhost:8080/songs';
+  private songApiUrl = 'http://localhost:8080';
   constructor(private http: HttpClient) { }
 
   getSongs(): Observable<Song[]> { 
     // filters out test data
-     return this.http.get<any>(this.songUrl).pipe(map(data => {
+     return this.http.get<any>(this.songApiUrl + "/songs").pipe(map(data => {
         return data.songs.filter((song: any) => song.title)
      }))
+  }
+
+  deleteSong(id: string) : Observable<any> {
+    // todo hanle the response
+    return this.http.delete(this.songApiUrl + /song/ + id);
   }
 }

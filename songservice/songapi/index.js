@@ -33,6 +33,12 @@ app.post('/song', async (req, res) => {
     res.send({ song: 'ok' })
 })
 
+app.delete('/song/:id', async (req, res) => {
+    console.log('deleting song', req.params.id)
+    songbase.deleteSong(req.params.id)
+    res.send({ song: 'ok' })
+})
+
 const startup = () => {
     app.listen(PORT, HOST)
     console.log(`G'day Muso running on http://${HOST}:${PORT}`)

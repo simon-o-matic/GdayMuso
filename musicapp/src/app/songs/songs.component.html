@@ -9,7 +9,7 @@
           <p><span>Released: </span>{{ song.year_released }}</p>
         </div>
         <div>
-          <button>Delete Song</button>
+          <button (click)="deleteSong(song._id)">Delete Song</button>
           <button>Edit Song</button>
         </div>
       </div>
