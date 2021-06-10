@@ -1,7 +1,7 @@
 'use strict'
 
 import express from 'express'
-import Songbase from './src/database.js'
+import Songbase from './src/songbase.js'
 
 // Constants
 const PORT = process.env.PORT || 8080

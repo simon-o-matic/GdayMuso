@@ -1,7 +1,7 @@
 // Note: this is an integration test (not unit) and uses a database inside the dev songbase.
 //       which should be seaprated out in a real environment
 
-import Songbase from '../src/database.js'
+import Songbase from '../src/songbase.js'
 
 const TEST_DB_NAME = 'TEST_songbase'
 const songbase = new Songbase(TEST_DB_NAME)
