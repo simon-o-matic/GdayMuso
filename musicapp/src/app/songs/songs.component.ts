@@ -24,5 +24,4 @@ export class SongsComponent implements OnInit {
   ngOnInit(): void {
     this.getSongs();
   }
-
 }

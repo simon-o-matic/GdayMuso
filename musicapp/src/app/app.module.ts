@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SongsComponent } from './songs/songs.component';
+import { SongFormComponent } from './song-form/song-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SongsComponent
+    SongsComponent,
+    SongFormComponent
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,10 @@ export class SongService {
   private songApiUrl = 'http://localhost:8080';
   constructor(private http: HttpClient) { }
 
+  addSong(song: Song) {
+    return this.http.post(this.songApiUrl + "/song", {song: song} );
+  }
+
   getSongs(): Observable<Song[]> { 
     // filters out test data
      return this.http.get<any>(this.songApiUrl + "/songs").pipe(map(data => {

@@ -28,7 +28,7 @@ app.get('/songs', async (req, res) => {
 
 // todo: error handling, and duplicates
 app.post('/song', async (req, res) => {
-    console.log('song adding', req.body)
+    console.log('adding song', req.body)
     songbase.addSong(req.body.song)
     res.send({ song: 'ok' })
 })

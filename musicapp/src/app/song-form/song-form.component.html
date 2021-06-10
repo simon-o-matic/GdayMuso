@@ -1,0 +1,49 @@
+{{ model | json }}
+<form (ngSubmit)="onSubmit(); songForm.reset()" #songForm="ngForm">
+  <div class="form-group">
+    <label for="title">Song Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      required
+      [(ngModel)]="model.title"
+      name="title"
+    />
+  </div>
+  <div class="form-group">
+    <label for="artist">Artist</label>
+    <input
+      type="text"
+      class="form-control"
+      id="artist"
+      [(ngModel)]="model.artist"
+      name="artist"
+    />
+  </div>
+  <div class="form-group">
+    <label for="year_released">Year Released</label>
+    <input
+      type="text"
+      class="form-control"
+      id="year_released"
+      [(ngModel)]="model.year_released"
+      name="year_released"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-default"
+    [disabled]="!songForm.form.valid"
+  >
+    Submit New Song
+  </button>
+  <button
+    type="button"
+    class="btn btn-default"
+    (click)="newSong(); songForm.reset()"
+  >
+    Clear
+  </button>
+</form>

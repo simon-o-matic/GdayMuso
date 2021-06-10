@@ -8,8 +8,15 @@ export default function (dbName) {
     let songCollection
 
     const addSong = async (song) => {
-        song.created = new Date().getTime()
-        return songCollection.insertOne(song)
+        let serverSong = {
+            title: song.title || 'The Myster Song',
+            artist: song.artist || 'Anonymous',
+            year_released: song.year_released || 1963, // a great year for song writing
+            created: new Date().getTime(),
+        }
+
+        console.log('About to insert song', serverSong)
+        return songCollection.insertOne(serverSong)
     }
 
     const deleteSong = async (id) => {

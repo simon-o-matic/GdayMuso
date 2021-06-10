@@ -1,9 +1,14 @@
+export class Song {
+  public title: string;
+  public artist: string;
+  public year_released: number;
+  public _id: string;
+  
+  constructor (title: string, artist: string, year_released: number) {
+      this.title = title; 
+      this.artist=artist; 
+      this.year_released = year_released;
 
-export interface Song {
-    _id: string
-    title: string;
-    artist?: string;
-    created?: number;
-    year_released?: number;
-    genres?: Array<string>;
-  }
+      this._id = ""
+    }
+  } 
