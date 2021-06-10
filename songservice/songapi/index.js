@@ -1,25 +1,46 @@
 'use strict'
 
 import express from 'express'
-
-import databaseConnect from './database.js'
+import Songbase from './src/database.js'
 
 // Constants
 const PORT = process.env.PORT || 8080
 const HOST = '0.0.0.0'
+const SONG_DB_NAME = 'songdatabase'
 
-// App
 const app = express()
+const songbase = Songbase(SONG_DB_NAME)
+
+app.use(express.urlencoded())
+app.use(express.json())
+
 app.get('/', (req, res) => {
-    console.log('boo')
-    databaseConnect('gday')
-    res.send('Hello Muso')
+    res.send("G'day Muso. Try /song")
 })
 
-app.get('/muso', (req, res) => {
-    console.log('blah')
-    res.send('Play that funky music white boy')
+// todo: streaming/paging of long results
+app.get('/songs', async (req, res) => {
+    let allSongs = await songbase.getAllSongs()
+    res.json({ songs: allSongs })
 })
 
-app.listen(PORT, HOST)
-console.log(`Hello Muso Y running on http://${HOST}:${PORT}`)
+// todo: error handling, and duplicates
+app.post('/song', async (req, res) => {
+    console.log('song adding', req.body)
+    songbase.addSong(req.body.song)
+    res.send({ song: 'ok' })
+})
+
+const startup = () => {
+    app.listen(PORT, HOST)
+    console.log(`G'day Muso running on http://${HOST}:${PORT}`)
+
+    if (!songbase.connect()) {
+        console.error("Can't connect to the song database")
+        process.exit(1)
+    }
+
+    console.log("G'day Muso database all sorted")
+}
+
+startup()
