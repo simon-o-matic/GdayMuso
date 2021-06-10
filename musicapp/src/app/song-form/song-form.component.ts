@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 
-import { SongService} from '../song.service'
+import { SongService} from '../song.service';
+
+
 import { Song } from '../song';
 
 @Component({
@@ -11,17 +13,17 @@ import { Song } from '../song';
 export class SongFormComponent {
 
   model = new Song('', '', 0);
-  genres = ["Rock", "Punk", "Jazz", "Ska", "Pop", "Rap", "Classical"]
+  // genres = ["Rock", "Punk", "Jazz", "Ska", "Pop", "Rap", "Classical"]
 
   submitted = false;
 
-  constructor(private songService: SongService) { }
+  constructor(
+    private songService: SongService) { }
 
   onSubmit() { 
     this.submitted = true; 
     console.log("Adding a song", this.model);
-    this.songService.addSong(this.model).subscribe(() =>{});
-
+    this.songService.addSong(this.model);
   }
   
   newSong() {

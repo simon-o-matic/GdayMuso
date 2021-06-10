@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable , EventEmitter} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -11,10 +11,20 @@ import { Song } from './song'
 })
 export class SongService {
   private songApiUrl = 'http://localhost:8080';
+  songChangeEmitter = new EventEmitter();
+
   constructor(private http: HttpClient) { }
 
+  songsChanged() {
+    this.songChangeEmitter.emit("songschanged");
+  }
+
+  subscribeSongsChanged(handler: any) {
+    this.songChangeEmitter.subscribe(handler);
+  }
+
   addSong(song: Song) {
-    return this.http.post(this.songApiUrl + "/song", {song: song} );
+    this.http.post<any>(this.songApiUrl + "/song", {song: song} ).subscribe(()=>this.songsChanged());
   }
 
   getSongs(): Observable<Song[]> { 
