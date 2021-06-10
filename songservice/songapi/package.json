@@ -1,13 +1,15 @@
 {
-    "name": "SongAPI",
+    "name": "song_api",
     "version": "0.0.1",
     "description": "The Song API in node/express. Uses a private Song Database in Mongo.",
     "author": "shimmie",
     "main": "index.js",
+    "type": "module",
     "scripts": {
-      "start": "node index.js"
+        "start": "nodemon index.js"
     },
     "dependencies": {
-      "express": "^4.16.1"
+        "express": "^4.16.1",
+        "mongodb": "^4.0.0-beta.5"
     }
-  }
+}

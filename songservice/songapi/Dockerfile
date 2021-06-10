@@ -3,10 +3,9 @@ FROM node:14
 # Create an app directory
 WORKDIR /app
 
-# Copy our important files across and get the packages
+# Copy package because volume not yet mounted
 COPY package*.json /app
 RUN npm install
-
-COPY . .
+RUN npm install -g nodemon
 
 CMD [ "npm", "start" ]
