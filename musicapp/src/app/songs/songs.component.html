@@ -1,0 +1,19 @@
+<div class="border">
+  <ul class="songs">
+    <li *ngFor="let song of songs">
+      <h3>Title: {{ song.title | uppercase }}</h3>
+
+      <div style="background-color: blue">
+        <div>
+          <p><span>Artist: </span>{{ song.artist }}</p>
+          <p><span>Released: </span>{{ song.year_released }}</p>
+        </div>
+        <div>
+          <button>Delete Song</button>
+          <button>Edit Song</button>
+        </div>
+      </div>
+      <hr />
+    </li>
+  </ul>
+</div>
