@@ -71,3 +71,37 @@ describe('when deleting a song', () => {
         expect(noSongs.length).toEqual(0)
     })
 })
+
+describe('when updating a song', () => {
+    beforeEach(async () => {
+        await songbase.clear()
+    })
+
+    const song1 = { title: 'title1', artist: 'artist1', year_released: 'year1' }
+    const song2 = { title: 'title2', artist: 'artist2', year_released: 'year2' }
+
+    it('if the song exists, its updated', async () => {
+        await songbase.addSong(song1)
+        const allSongs = await songbase.getAllSongs()
+
+        expect(allSongs.length).toEqual(1)
+        await songbase.updateSong(allSongs[0]._id, song2)
+
+        const newSongs = await songbase.getAllSongs()
+
+        expect(newSongs[0]._id).toEqual(allSongs[0]._id)
+        expect(newSongs[0].title).toEqual(song2.title)
+        expect(newSongs[0].artist).toEqual(song2.artist)
+        expect(newSongs[0].year_released).toEqual(song2.year_released)
+    })
+
+    it("if the song doesn't exist, no changes are made", async () => {
+        await songbase.addSong(song1)
+        const allSongs = await songbase.getAllSongs()
+        await songbase.deleteSong(allSongs[0]._id)
+        await songbase.updateSong(allSongs[0]._id, song2)
+
+        const newSongs = await songbase.getAllSongs()
+        expect(newSongs.length).toEqual(0)
+    })
+})

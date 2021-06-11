@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import randomName from './random-name';
 
 import { Song } from './song'
 
@@ -38,4 +39,16 @@ export class SongService {
     // todo hanle the response
     return this.http.delete(this.songApiUrl + /song/ + id);
   }
+
+  updateSong(song: Song): Observable<any>  {
+    // fun hack for updating
+    randomiseSong(song);
+    return this.http.put(this.songApiUrl + /song/ + song._id, {song: song});
+  }
+}
+ 
+const randomiseSong = (song: Song) => {
+  song.title = "Tiptoe through " + (Math.floor(Math.random() * 100) + " Tulips");
+  song.artist = randomName();
+  song.year_released = 1920 + Math.floor(Math.random() * (2021 - 1920) + 1); // Did anything good come out before 1920???
 }

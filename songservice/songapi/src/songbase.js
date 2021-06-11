@@ -9,7 +9,7 @@ export default function (dbName) {
 
     const addSong = async (song) => {
         let serverSong = {
-            title: song.title || 'The Myster Song',
+            title: song.title || 'The Mystery Song',
             artist: song.artist || 'Anonymous',
             year_released: song.year_released || 1963, // a great year for song writing
             created: new Date().getTime(),
@@ -17,6 +17,22 @@ export default function (dbName) {
 
         console.log('About to insert song', serverSong)
         return songCollection.insertOne(serverSong)
+    }
+
+    const updateSong = async (id, song) => {
+        let serverSong = {
+            title: song.title,
+            artist: song.artist,
+            year_released: song.year_released,
+            last_updated: new Date().getTime(),
+        }
+
+        console.log('About to update song', serverSong)
+        return songCollection.updateOne(
+            { _id: ObjectId(id) },
+            { $set: serverSong }
+        )
+        // ignored errors. #bad
     }
 
     const deleteSong = async (id) => {
@@ -61,5 +77,13 @@ export default function (dbName) {
         }
     }
 
-    return { connect, clear, addSong, getAllSongs, close, deleteSong }
+    return {
+        connect,
+        clear,
+        addSong,
+        getAllSongs,
+        close,
+        deleteSong,
+        updateSong,
+    }
 }

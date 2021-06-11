@@ -33,6 +33,12 @@ app.post('/song', async (req, res) => {
     res.send({ song: 'ok' })
 })
 
+app.put('/song/:id', async (req, res) => {
+    console.log('adding song', req.body)
+    songbase.updateSong(req.params.id, req.body.song)
+    res.send({ song: 'ok' })
+})
+
 app.delete('/song/:id', async (req, res) => {
     console.log('deleting song', req.params.id)
     songbase.deleteSong(req.params.id)

@@ -25,7 +25,18 @@ export class SongsComponent implements OnInit {
     this.songService.deleteSong(id).subscribe(() => this.getSongs());
   }
 
+  updateSong(id: string): void {
+    const song: Song | undefined = this.findSongById(id);
+    if (!song) {
+      console.error("The song we tried to update weirdly doesn't exist")
+      return;
+    }
+    this.songService.updateSong(song).subscribe(() => this.getSongs());
+  }
+
   ngOnInit(): void {
     this.getSongs();
   }
+
+  findSongById = (id: string) : Song | undefined => this.songs.find((song) => song._id == id);
 }

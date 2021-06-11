@@ -12,14 +12,19 @@
         </div>
         <div class="song-deets-controls">
           <div class="song-deets">
-            <p><span>By </span>{{ song.artist }}</p>
-            <p><span>Released </span>{{ song.year_released }}</p>
+            <p>
+              <span>By </span><span class="artist">{{ song.artist }}</span>
+            </p>
+            <p>
+              <span>Released </span
+              ><span class="year">{{ song.year_released }}</span>
+            </p>
           </div>
 
           <div class="song-controls">
             <div class="button">
               <a href="#" (click)="deleteSong(song._id)">DELETE</a
-              ><a class="cart-btn" href="#"
+              ><a class="cart-btn" href="#" (click)="updateSong(song._id)"
                 ><i class="cart-icon ion-bag"></i>RANDOM UPDATE</a
               >
             </div>
@@ -30,5 +35,13 @@
   </div>
 </div>
 <ng-template #elseBlock>
-  <div class="no-songs">YOU NEED MORE MUSIC IN YOUR LIFE. ADD SOME!</div>
+  <div class="no-songs">
+    <div>YOU NEED MORE MUSIC IN YOUR LIFE. ADD SOME!</div>
+    <div>
+      <img
+        width="100px"
+        src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Nomusic.png"
+      />
+    </div>
+  </div>
 </ng-template>
