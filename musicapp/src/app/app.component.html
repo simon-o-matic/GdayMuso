@@ -1,8 +1,9 @@
-<div>
+<div class="outer">
+  <div class="title">{{ title }}</div>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="250"
-    height="40"
+    height="80"
     viewBox="0 0 116.936 27.261"
   >
     <defs>
@@ -34,10 +35,13 @@
       />
     </g>
   </svg>
-  <h1>{{ title }}</h1>
 </div>
-<div>
-  <app-song-form></app-song-form>
-  <h2>Song List</h2>
-  <app-songs></app-songs>
+
+<div class="data-container">
+  <div class="form-container">
+    <app-song-form></app-song-form>
+  </div>
+  <div class="songs-container">
+    <app-songs></app-songs>
+  </div>
 </div>

@@ -14,6 +14,34 @@ body {
 }
 
 div {
-  padding: 5px;
   margin: 10px;
+}
+
+.outer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title {
+  color: indigo;
+  font-size: 30pt;
+  font-family: Arial;
+}
+.data-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.form-container {
+  background-color: rgb(177, 181, 236);
+  flex-grow: 1;
+  padding: 10px;
+  min-width: 20%;
+}
+
+.songs-container {
+  flex-grow: 3;
 }
